@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block title %}
+    Remove Expense
+{% endblock %}
+{% block content %}
+    <h1 class="text-center mt-4">Are you sure want to remove this expense?</h1>
+    <form method="post">
+        {% csrf_token %}
+        <button class="btn btn-danger" type="submit">Delete</button>
+        <a href="{% url 'index' %}" class="btn btn-warning">Cancel</a>
+    </form>
+{% endblock %}

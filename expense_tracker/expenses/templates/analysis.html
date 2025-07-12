@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block title %}{{category}} chart{% endblock %}
+{% block addExpenseForm %}
+    <h2>Expense chart for {{category}}</h2>
+    
+    {% if chart %}
+        <img src="{{chart}}" alt="chart image" class="img-fluid">
+    {% else %}
+        <p>No data available for this category</p>
+    {% endif %}
+        
+{% endblock %}

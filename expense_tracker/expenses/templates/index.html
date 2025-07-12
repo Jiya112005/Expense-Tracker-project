@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% block title %}
+    Expense Tracker home page
+{% endblock title %}
+{% block content %}
+   
+   {% if user.is_authenticated %}
+    
+   
+   {% for expense in expenses %}
+   
+   
+   <div class="expense-list mt-5">
+       <div class="row mx-2 expense-item mb-4 py-1">
+           <div class="col-sm-3 col-md-2 p-3 d-none d-sm-block">
+               <a href="{% url 'categoryChart' category=expense.category %}" class="expense-category btn px-lg-3 py-3 ml-lg-3">
+                   {{expense.category}}
+               </a>
+            </div>
+            <div class="col-9 col-sm-7 col-md-8 d-flex justify-content-center flex-column py-2">
+                <h2 class="expense-title">{{expense.title}}</h2>
+                <span class="expense-date">{{expense.date}}</span>
+                
+            </div>
+            
+            <div class="col-3 col-sm-2 col-md-2 d-flex align-items-center justify-content-center display-inline gap-4">
+                <span class="expense-amount">Rs. {{expense.amount}}</span>
+                <span><a href="{% url 'removeExpense' expense.expenseId%}"   class="btn btn-danger display-inline">Remove Expense</a></span>
+                <span><a href="{% url 'editExpense' expense.expenseId%}" class="btn btn-warning display-inline">Edit Expense</a></span>
+                
+                {% if expense.is_recurring %}
+                    <p><span style="color:white;font-size:1rem;background-color:green" class="badge badge-info">Recurring</span></p>
+                {% endif %}
+                    
+            </div>
+        </div>
+        
+        
+    </div>
+    
+    {% endfor %}
+    {% endif %}
+    {% endblock%}
+
+
