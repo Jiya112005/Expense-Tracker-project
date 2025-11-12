@@ -134,7 +134,8 @@ def registerUser(request):
         email = request.POST.get('email')
         password1 = request.POST.get('password1')
         password2=request.POST.get('password2')
-        
+        if not username or not email or not password1 or not password2:
+            return render(request, 'registration/register.html', {'error': 'All fields are required'})
         if password1!=password2:
             return render(request,'registration/register.html',{'error':'Password do not match'})
         
@@ -143,7 +144,7 @@ def registerUser(request):
         
         user = User.objects.create_user(username=username,email=email,password=password1)
         user.save()
-        return redirect('login')
+        return redirect('login') 
     return render(request,'registration/register.html')
 
 def loginUser(request):
@@ -151,7 +152,7 @@ def loginUser(request):
         username = request.POST.get('username')
         password1 = request.POST.get('password1')
         user = authenticate(request,username=username,password=password1)
-        if user:
+        if user is not None:
             login(request,user)
             return redirect('index')
         else:
