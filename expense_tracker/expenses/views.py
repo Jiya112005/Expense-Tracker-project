@@ -28,6 +28,7 @@ def expense_list(request):
     months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 
               'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
     return render(request,'index.html',{'expenses':expenses,'months':months,'selected_month':month})
+
 @login_required
 def addExpense(request):
         if request.method == 'POST':
