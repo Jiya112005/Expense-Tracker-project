@@ -39,24 +39,6 @@ It uses **HTML, CSS, and JavaScript** to build a responsive and user-friendly in
 | **HTML5**   | Structure of the Expense Tracker |
 | **CSS3**    | Styling and responsive layout |
 | **JavaScript** | Dynamic behavior and local storage |
-
+| **Django**   | Backend |
+| **Sqllite** | Database |
 ---
-
-## 📁 Project Structure
-
-📦 Expense-Tracker-project
-
-├── index.html # Main page with UI
-
-├── style.css # Styles for layout and visuals
-
-├── script.js # JavaScript to manage expenses & local storage
-
-└── README.md # Project documentation
-
-### Clone the Repository
-
-  ```bash
-      git clone https://github.com/Jiya112005/Expense-Tracker-project.git
-      cd Expense-Tracker-project
-
